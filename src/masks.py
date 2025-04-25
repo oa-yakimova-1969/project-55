@@ -18,14 +18,11 @@ def get_mask_card_number(card_number: Union[str, int]) -> str:
     logger.debug("Преобразуем входные данные в строку")
     str_card_number = str(card_number)
     logger.debug("Проверяем входные данные на корректность")
-    if (
-        str_card_number.isdigit()
-        and len(str_card_number) == STANDART_LENGTH_CARD_NUMBER
-    ):
-        logger.debug("Номер карты успешно замаскирован")
+    if str_card_number.isdigit() and len(str_card_number) == STANDART_LENGTH_CARD_NUMBER:
+        logger.debug("Функция маскировки номера карты успешно завершилась\n")
         return f"{str_card_number[:4]} {str_card_number[4:6]}** **** {str_card_number[12:]}"
     else:
-        logger.error("Ошибка: некорректный ввод")
+        logger.error("Функция маскировки номера карты завершилась с ошибкой\n")
         return "Некорректный ввод"
 
 
@@ -35,13 +32,9 @@ def get_mask_account(account_number: Union[str, int]) -> str:
     logger.debug("Преобразуем входные данные в строку")
     str_account_number = str(account_number)
     logger.debug("Проверяем входные данные на корректность")
-    if (
-        str_account_number.isdigit()
-        and len(str_account_number) == STANDART_LENGTH_ACCOUNT_NUMBER
-    ):
-        logger.debug("Номер счета успешно замаскирован")
+    if str_account_number.isdigit() and len(str_account_number) == STANDART_LENGTH_ACCOUNT_NUMBER:
+        logger.debug("Функция маскировки номера счета успешно завершилась\n")
         return f"**{str_account_number[-4:]}"
     else:
-        logger.error("Ошибка: некорректный ввод")
+        logger.error("Функция маскировки номера счета завершилась с ошибкой\n")
         return "Некорректный ввод"
-

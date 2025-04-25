@@ -19,14 +19,13 @@ def get_json_transactions(file_path):
             json_transactions = json.load(f)
             logger.debug("Проверяем являются ли данные списком")
             if isinstance(json_transactions, list):
-                logger.debug("Функция чтения json-файла успешно завершилась")
+                logger.debug("Функция чтения json-файла успешно завершилась\n")
                 return json_transactions
 
             else:
-                logger.error("Некорректные данные:не список")
+                logger.error("Некорректные данные:не список\n")
                 return []
 
     except (json.JSONDecodeError, FileNotFoundError, ValueError, TypeError, Exception):
-        logger.error("Выполнение функции завершилось с ошибкой")
+        logger.error("Выполнение функции завершилось с ошибкой\n")
         return []
-
